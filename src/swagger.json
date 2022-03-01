@@ -1,0 +1,95 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Title",
+    "description": "Describe API descrition here",
+    "contact": {
+      "email": "skysign@gmail.com"
+    },
+    "version": "0.1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/",
+      "description": "Development landscape server"
+    },
+    {
+      "url": "http://localhost:3000/",
+      "description": "Development production server"
+    }
+  ],
+  "paths": {
+    "/api/v1/myapi/{parameterInPath}": {
+      "get": {
+        "summary": "Describe summary get/myapi",
+        "description": "description get/myapi",
+        "parameters": [
+          {
+            "name": "parameterInPath",
+            "in": "path",
+            "description": "description about parameterInPath",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "description 200 responses",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "response200": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "response200": [
+                    "first",
+                    "second",
+                    "thrid"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/myapi": {
+      "post": {
+        "summary": "Describe summary post/myapi",
+        "description": "description post/myapi",
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "description 200 responses",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "response200": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }              
+            }
+          }
+        }
+      }      
+    }
+  }
+}
