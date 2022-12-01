@@ -2,10 +2,8 @@ import winston, { format } from 'winston';
 import winstonDaily from 'winston-daily-rotate-file';
 
 const {
-  combine, timestamp, printf, colorize,
+  combine, timestamp, colorize,
 } = format;
-
-const customFormat = printf((info) => `${info.timestamp} ${info.level}: ${info.message}`);
 
 // Colorize console log
 const consoleOpts = {
@@ -17,12 +15,31 @@ const consoleOpts = {
   ),
 };
 
+const enumerateErrorFormat = format(info => {
+  // if (info.message instanceof Error) {
+  //   info.message = Object.assign({
+  //     message: info.message.message,
+  //     stack: info.message.stack
+  //   }, info.message);
+  // }
+
+  if (info instanceof Error) {
+    return Object.assign({
+      message: info.message,
+      stack: info.stack
+    }, info);
+  }
+
+  return info;
+});
+
 const logger = winston.createLogger({
   format: combine(
     timestamp({
       format: 'YYYY-MM-DD HH:mm:ss.SSS',
     }),
-    customFormat,
+    enumerateErrorFormat(),
+    format.json()
   ),
   transports: [
     new winston.transports.Console(consoleOpts),

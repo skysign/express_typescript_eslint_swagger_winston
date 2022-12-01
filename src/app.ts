@@ -4,7 +4,7 @@ import swaggerUi from 'swagger-ui-express';
 // import bodyParser from 'body-parser';
 
 import morgan from 'morgan';
-import { logger, stream } from './config/winston';
+import { stream } from './config/winston';
 import routerAPIs from './routes/api';
 
 const swaggerDocument = require('./swagger.json');
@@ -56,6 +56,4 @@ app.get('/welcome', (_req: Request, res: Response) => {
   res.send('welcome!');
 });
 
-app.listen('3000', () => {
-  logger.debug('🛡️ Server listening on port: 3000');
-});
+export default app;

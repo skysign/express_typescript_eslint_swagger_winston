@@ -6,7 +6,8 @@ This is starter template of express, typescript, eslint, swagger, winston, to be
 * [ESLint](https://eslint.org/)
 * [Swagger](https://swagger.io/)
 * [Winston](https://github.com/winstonjs/winston)
-* [yarn](https://yarnpkg.com/) we use yarn instead of npm, 
+* [Jest](https://jestjs.io/)
+* [yarn](https://yarnpkg.com/) we use yarn instead of npm,
 
 # Features
 - Implemented by Typescript and Eslint is enabled, also
@@ -35,4 +36,3 @@ Please visit all of addresses belows as they are working, now.
   - Swagger API document
 - http://localhost:3000/
 - http://localhost:3000/welcome
-
